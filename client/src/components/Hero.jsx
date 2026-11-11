@@ -17,7 +17,7 @@ export default function Hero({ ready }) {
   const up = (delay) => ({ initial: { opacity: 0, y: 28 }, animate: ready ? { opacity: 1, y: 0 } : {}, transition: { duration: 1.2, ease, delay } });
 
   return (
-    <header ref={ref} id="top" className="relative h-[100svh] min-h-[660px] overflow-hidden bg-ink text-white">
+    <header ref={ref} id="top" className="relative min-h-[100svh] overflow-hidden bg-ink text-white">
       <motion.div style={{ y: bgY }} className="absolute inset-0">
         <motion.div className="absolute inset-0" initial={{ opacity: 0, scale: 1.18 }} animate={ready ? { opacity: 1, scale: 1 } : {}} transition={{ duration: 2.6, ease }}>
           {vid ? <video className="h-full w-full object-cover" src={vid} autoPlay muted loop playsInline poster={img || undefined} />
@@ -36,7 +36,7 @@ export default function Hero({ ready }) {
       </motion.svg>
       <div className="grain" />
 
-      <motion.div style={{ y: textY, opacity: fade }} className="gutter shell relative z-10 flex h-full flex-col justify-end pb-8 pt-28 md:pb-10">
+      <motion.div style={{ y: textY, opacity: fade }} className="gutter shell relative z-10 flex min-h-[100svh] flex-col justify-end pb-8 pt-32 md:pb-10">
         <h1 className="text-display text-white">
           <MaskLines ready={ready} delay={0.9} stagger={0.14} lines={['No one should', 'stand alone against', { t: 'a false charge.', className: 'italic text-gold-soft' }]} />
         </h1>
@@ -47,7 +47,7 @@ export default function Hero({ ready }) {
           <motion.div {...up(2.1)}><Magnetic><Button onClick={() => goTo('act')}>Take Action</Button></Magnetic></motion.div>
           <motion.div {...up(2.25)}><Magnetic><Button variant="ghost" onClick={() => goTo('impact')}>Explore Our Impact</Button></Magnetic></motion.div>
         </div>
-        <motion.div {...up(2.5)} className="mt-12 hidden items-end justify-between border-t border-white/15 pt-5 md:flex">
+        <motion.div {...up(2.5)} className="mt-8 hidden items-end justify-between border-t border-white/15 pt-5 md:flex">
           <ul className="grid grid-cols-3 gap-10 text-sm text-white/60">
             {['Humanitarian assistance', 'Legal and advocacy support', 'Community outreach'].map((t) => <li key={t}><button onClick={() => goTo('work')} className="transition-colors hover:text-gold-soft">{t}</button></li>)}
           </ul>
