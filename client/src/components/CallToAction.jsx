@@ -17,7 +17,7 @@ export default function CallToAction() {
       </motion.div>
       <div className="grain" />
       <div className="gutter shell relative">
-        <h2 className="text-[clamp(3rem,10.5vw,10.5rem)] leading-[.92] tracking-[-0.035em]"><MaskLines inView stagger={0.15} lines={['Be part of', { t: 'the change.', className: 'italic text-gold-soft' }]} /></h2>
+        <h2 className="text-[clamp(3rem,10.5vw,10.5rem)] leading-[.92] tracking-[-0.035em]"><MaskLines inView stagger={0.15} lines={['Be part of', { t: 'the change.', className: 'text-gold-soft' }]} /></h2>
         <p className="mt-8 max-w-[46ch] text-lead text-white/75">Give, volunteer or simply reach out. Every form of support reaches someone who needs it.</p>
         <div className="mt-10 flex flex-wrap gap-4">
           <Magnetic><Button onClick={() => openContact('donate')}>Donate</Button></Magnetic>

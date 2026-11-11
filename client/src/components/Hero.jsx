@@ -38,7 +38,7 @@ export default function Hero({ ready }) {
 
       <motion.div style={{ y: textY, opacity: fade }} className="gutter shell relative z-10 flex min-h-[100svh] flex-col justify-end pb-8 pt-32 md:pb-10">
         <h1 className="text-display text-white">
-          <MaskLines ready={ready} delay={0.9} stagger={0.14} lines={['No one should', 'stand alone against', { t: 'a false charge.', className: 'italic text-gold-soft' }]} />
+          <MaskLines ready={ready} delay={0.9} stagger={0.14} lines={['No one should', 'stand alone against', { t: 'a false charge.', className: 'text-gold-soft' }]} />
         </h1>
         <motion.p {...up(1.9)} className="mt-7 max-w-[52ch] text-lead text-white/75">
           Humanitarian aid for families in need, and legal advocacy for innocent people who have been falsely accused. Strictly non-political.

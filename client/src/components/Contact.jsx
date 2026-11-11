@@ -31,7 +31,7 @@ export default function Contact() {
     <section id="contact" className="relative bg-navy py-28 text-white md:py-44">
       <div className="gutter shell grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-5">
-          <h2 className="text-h2"><MaskLines inView lines={['Need help?', { t: 'Reach out.', className: 'italic text-gold-soft' }]} /></h2>
+          <h2 className="text-h2"><MaskLines inView lines={['Need help?', { t: 'Reach out.', className: 'text-gold-soft' }]} /></h2>
           <address className="mt-10 space-y-3 not-italic text-mist">
             <p><b className="font-semibold text-white">{ORG.person}</b>, contact person</p>
             <p><A href={`tel:+91${ORG.phone}`}>+91 {ORG.phone}</A></p><p><A href={`mailto:${ORG.email}`}>{ORG.email}</A></p>
