@@ -1,0 +1,31 @@
+@import 'lenis/dist/lenis.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --ink:5 11 26; --navy:11 27 61; --navy-600:22 49 107;
+  --paper:232 235 241; --paper-2:221 226 235;
+  --gold:226 176 74; --gold-soft:243 213 139; --mist:159 176 208;
+}
+@layer base{
+  html{background:rgb(var(--ink));-webkit-text-size-adjust:100%}
+  body{font-family:'Hanken Grotesk',system-ui,sans-serif;background:rgb(var(--ink));color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  ::selection{background:rgb(var(--gold));color:rgb(var(--ink))}
+  :focus-visible{outline:2px solid rgb(var(--gold));outline-offset:4px;border-radius:2px}
+  h1,h2,h3{font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+}
+@layer components{
+  .gutter{@apply px-6 md:px-12 lg:px-20}
+  .shell{max-width:1680px;margin-inline:auto}
+  .atmos{background:radial-gradient(80% 70% at 75% 20%,rgb(var(--navy-600)),transparent 70%),linear-gradient(180deg,rgb(var(--navy)),rgb(var(--ink)))}
+  .veil{background:linear-gradient(90deg,rgb(var(--ink)/.88),rgb(var(--ink)/.35) 65%,transparent),linear-gradient(0deg,rgb(var(--ink)/.9),transparent 45%)}
+  .grain{position:absolute;inset:0;pointer-events:none;opacity:.09;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .spot{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .5s;background:radial-gradient(480px circle at var(--mx,50%) var(--my,50%),rgb(var(--gold)/.12),transparent 60%)}
+  .group:hover .spot{opacity:1}
+  .art *{vector-effect:non-scaling-stroke}
+  .skip{position:fixed;left:1rem;top:-4rem;z-index:400;background:rgb(var(--gold));color:rgb(var(--ink));padding:.7rem 1rem;font-weight:600;transition:top .3s}
+  .skip:focus{top:1rem}
+}
+html.lenis, html.lenis body{height:auto}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
