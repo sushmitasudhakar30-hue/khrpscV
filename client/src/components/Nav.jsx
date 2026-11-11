@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
-import Mark from './Mark.jsx';
+import Logo from './Logo.jsx';
 import Button from './Button.jsx';
 import { NAV } from '../data/content.js';
 import { ease, goTo, lenisRef, openContact } from '../lib/motion.js';
@@ -25,7 +25,7 @@ export default function Nav({ ready }) {
       <motion.nav aria-label="Primary" animate={{ height: scrolled ? 64 : 92 }} transition={{ duration: 0.6, ease }} className="gutter shell grid grid-cols-[1fr_auto] items-center lg:grid-cols-[1fr_auto_1fr]">
         <a href="#top" onClick={go('top')} className="flex items-center gap-3 justify-self-start" aria-label="KHRPSC home">
           <motion.span animate={{ scale: scrolled ? 0.86 : 1 }} transition={{ duration: 0.6, ease }} className="flex origin-left items-center gap-3 text-gold">
-            <Mark className="h-9 w-9" />
+            <Logo className="h-12 w-12" />
             <span className="hidden text-[11px] leading-tight text-white/70 sm:block"><b className="block text-[15px] font-semibold tracking-wide text-white">KHRPSC</b>Karnataka Human Rights<br />Public Service Committee</span>
           </motion.span>
         </a>

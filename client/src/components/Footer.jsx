@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Mark from './Mark.jsx';
+import Logo from './Logo.jsx';
 import Button from './Button.jsx';
 import { LEGAL, NAV, ORG, SOCIALS } from '../data/content.js';
 import { goTo } from '../lib/motion.js';
@@ -33,7 +33,7 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-ink pt-24 text-white">
       <div className="gutter shell grid gap-14 lg:grid-cols-12">
-        <div className="lg:col-span-5"><div className="flex items-center gap-3 text-gold"><Mark className="h-10 w-10" /><span className="font-display text-2xl text-white">{ORG.name}</span></div>
+        <div className="lg:col-span-5"><div className="flex items-center gap-3 text-gold"><Logo className="h-14 w-14" /><span className="font-display text-2xl text-white">{ORG.name}</span></div>
           <p className="mt-6 max-w-[40ch] text-lead text-white/60">{ORG.mission}</p></div>
         <nav aria-label="Footer" className="lg:col-span-2"><ul className="space-y-3">{NAV.map(([l, id]) => <li key={id}><L href={`#${id}`} onClick={(e) => { e.preventDefault(); goTo(id); }}>{l}</L></li>)}</ul></nav>
         <div className="space-y-3 text-white/70 lg:col-span-2"><p className="text-white">{ORG.person}</p><p><L href={`tel:+91${ORG.phone}`}>+91 {ORG.phone}</L></p><p><L href={`mailto:${ORG.email}`}>{ORG.email}</L></p>

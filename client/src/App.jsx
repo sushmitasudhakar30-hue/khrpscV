@@ -28,7 +28,7 @@ export default function App() {
 
   useEffect(() => { // smooth scrolling, skipped when the visitor prefers reduced motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const l = new Lenis({ lerp: 0.09, wheelMultiplier: 0.95 }); lenisRef.current = l;
+    const l = new Lenis({ lerp: 0.14, wheelMultiplier: 1.15 }); lenisRef.current = l;
     let id; const raf = (t) => { l.raf(t); id = requestAnimationFrame(raf); }; id = requestAnimationFrame(raf);
     return () => { cancelAnimationFrame(id); l.destroy(); lenisRef.current = null; };
   }, []);

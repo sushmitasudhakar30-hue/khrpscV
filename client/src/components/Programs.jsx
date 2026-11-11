@@ -5,6 +5,7 @@ import MaskLines from './Mask.jsx';
 import { useContent } from '../lib/content.js';
 import { openContact, useIsMobile } from '../lib/motion.js';
 
+const SPEED = 1.7; // horizontal slide moves this many times faster than the page scroll
 const spot = (e) => { const r = e.currentTarget.getBoundingClientRect(); e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`); e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`); };
 
 function Card({ p, i, className = '' }) {
@@ -45,7 +46,7 @@ export default function Programs() {
   const x = useTransform([p, dist], ([a, d]) => -a * d);
   useLayoutEffect(() => {
     if (mobile || !track.current) return;
-    const m = () => { const d = Math.max(0, track.current.scrollWidth - window.innerWidth); dist.set(d); setH(`calc(100vh + ${d}px)`); };
+    const m = () => { const d = Math.max(0, track.current.scrollWidth - window.innerWidth); dist.set(d); setH(`calc(100vh + ${d / SPEED}px)`); };
     m(); const ro = new ResizeObserver(m); ro.observe(track.current); addEventListener('resize', m);
     return () => { ro.disconnect(); removeEventListener('resize', m); };
   }, [mobile, dist]);
@@ -57,7 +58,7 @@ export default function Programs() {
   return (
     <section id="work" ref={ref} className="relative bg-ink text-white" style={{ height: h }}>
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
-        <motion.div ref={track} style={{ x }} className="flex w-max items-stretch gap-8 px-[6vw] pt-10">
+        <motion.div ref={track} style={{ x, willChange: 'transform' }} className="flex w-max items-stretch gap-8 px-[6vw] pt-10">
           <Intro />
           {PROGRAMS.map((pr, i) => <Card key={pr.title} p={pr} i={i} className="h-[68vh] w-[min(46vw,620px)]" />)}
         </motion.div>
